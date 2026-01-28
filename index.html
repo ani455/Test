@@ -1,301 +1,350 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '793998070376752');
+fbq('track', 'PageView');
+</script>
+<noscript>
+<img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=793998070376752&ev=PageView&noscript=1"/>
+</noscript>
+<!-- End Meta Pixel Code -->
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>All Games Demo Hub - Trusted Demos</title>
-    <link rel="stylesheet" href="demo-style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>VIP Trading Access</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800;900&family=Orbitron:wght@700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-dark: #0a0f1c; 
+            --card-bg: rgba(20, 30, 48, 0.6);
+            --primary-grad: linear-gradient(135deg, #00f2ff, #0072ff); 
+            --accent-glow: #00f2ff;
+            --text-white: #ffffff;
+            --text-gray: #94a3b8;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-dark);
+            background-image: 
+                radial-gradient(circle at 50% 10%, rgba(0, 114, 255, 0.15), transparent 60%),
+                repeating-linear-gradient(transparent, transparent 50px, rgba(0, 242, 255, 0.03) 50px, rgba(0, 242, 255, 0.03) 51px);
+            color: var(--text-white);
+            text-align: center;
+            overflow-x: hidden;
+            min-height: 100vh;
+            padding-bottom: 30px;
+            -webkit-user-select: none;
+            user-select: none;
+        }
+
+        .bg-floater {
+            position: fixed;
+            z-index: -1;
+            font-size: 30px;
+            opacity: 0.5;
+            animation: float-bg 8s ease-in-out infinite;
+        }
+        .f1 { top: 10%; left: 5%; }
+        .f2 { top: 15%; right: 5%; font-size: 25px; }
+        .f3 { bottom: 20%; left: 5%; font-size: 28px; }
+        .f4 { bottom: 25%; right: 8%; }
+
+        @keyframes float-bg {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-25px) rotate(10deg); }
+        }
+
+        .marquee-strip {
+            background: linear-gradient(90deg, #ff0055, #ff0000);
+            width: 100%;
+            padding: 8px 0;
+            box-shadow: 0 4px 15px rgba(255, 0, 0, 0.4);
+            overflow: hidden;
+        }
+        .marquee-content {
+            display: inline-block;
+            font-weight: 800;
+            font-size: 11px;
+            color: white;
+            white-space: nowrap;
+            animation: scroll 15s linear infinite;
+        }
+        @keyframes scroll { 
+            0% { transform: translateX(100%); } 
+            100% { transform: translateX(-100%); } 
+        }
+
+        .container {
+            max-width: 450px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .profile-box {
+            position: relative;
+            width: 110px;
+            height: 110px;
+            margin: 20px auto;
+        }
+        .profile-glow {
+            position: absolute;
+            inset: -5px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #00c6ff, #0072ff);
+            filter: blur(10px);
+            animation: pulse-ring 2s infinite;
+        }
+        .profile-pic {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 3px solid #1e293b;
+            object-fit: cover;
+            background: #000;
+        }
+        .badge {
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #0072ff;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 10px;
+            font-weight: 800;
+        }
+
+        .tag-pill {
+            background: rgba(0, 198, 255, 0.1);
+            color: #00c6ff;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            display: inline-block;
+        }
+
+        h1 {
+            font-size: 28px;
+            font-weight: 900;
+            margin: 5px 0;
+            text-transform: uppercase;
+        }
+        .gradient-text {
+            background: linear-gradient(to right, #ffffff, #00c6ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .desc {
+            font-size: 13px;
+            color: var(--text-gray);
+            margin-bottom: 25px;
+            line-height: 1.5;
+        }
+
+        .stats-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 30px;
+        }
+        .stat-item {
+            background: var(--card-bg);
+            padding: 12px 5px;
+            border-radius: 15px;
+        }
+        .s-val { font-size: 18px; font-weight: 800; }
+        .s-lbl { font-size: 9px; color: var(--text-gray); }
+
+        .btn-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .btn-blue {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            background: var(--primary-grad);
+            color: white;
+            font-size: 18px;
+            font-weight: 800;
+            padding: 20px;
+            border-radius: 16px;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+
+        .middle-label {
+            color: var(--text-gray);
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .timer-area {
+            margin-top: 35px;
+            padding: 15px;
+            border-radius: 15px;
+            background: rgba(0,0,0,0.2);
+        }
+        #countdown {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 36px;
+            color: var(--accent-glow);
+        }
+
+        .ads-management-box {
+            margin-top: 30px;
+            padding: 15px;
+            border-radius: 15px;
+            border: 1px dashed rgba(0, 198, 255, 0.2);
+        }
+
+        .ads-btn {
+            display: inline-flex;
+            padding: 10px 25px;
+            color: #00c6ff;
+            border: 1px solid #00c6ff;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 800;
+        }
+
+        .footer-note { 
+            font-size: 9px; 
+            color: #475569; 
+            margin-top: 30px; 
+        }
+
+        @keyframes pulse-ring { 
+            0% { opacity: 0.8; } 
+            50% { opacity: 0.4; } 
+            100% { opacity: 0.8; } 
+        }
+    </style>
 </head>
-<body>
-    <canvas id="bg-canvas" aria-hidden="true"></canvas>
 
-    <header class="site-header" role="banner">
-        <div class="container header-inner">
-            <div class="brand">
-                <div class="logo" aria-hidden="true">AG</div>
-                <div>
-                    <div class="site-title">All Games Demo Hub</div>
-                    <div class="site-sub">Trusted demos — instant access</div>
-                </div>
-            </div>
+<body oncontextmenu="return false;">
 
-            <nav class="nav" role="navigation" aria-label="Main navigation">
-                <a href="#games">Games</a>
-                <a href="#trust">Trust</a>
-                <a href="#games" class="ghost">Browse</a>
-                <a href="https://t.me/Rivestro?text=Hi%20Mujhe%20Website%20Create%20Karwana%20Hai" target="_blank" class="cta">Contact Now</a>
-            </nav>
+    <div class="bg-floater f1">💰</div>
+    <div class="bg-floater f2">✨</div>
+    <div class="bg-floater f3">🚀</div>
+    <div class="bg-floater f4">💎</div>
+
+    <div class="marquee-strip">
+        <div class="marquee-content">
+            ⚠️ WARNING: OFFER ENDING SOON! 💎 95% ACCURACY SIGNALS 💎 🚀 JOIN NOW!
         </div>
-    </header>
+    </div>
 
-    <section class="hero">
-        <div class="container">
-            <h1>Check Demo Games Instantly</h1>
-            <p class="lead">Explore demos and admin panels. No signup required to preview gameplay.</p>
-            <div class="hero-ctas">
-                <a href="#games" class="btn primary">View Demo Games</a>
-                <a href="https://t.me/Rivestro?text=Hi%20Mujhe%20Website%20Create%20Karwana%20Hai" class="btn ghost">Contact Now</a>
-            </div>
-            <div class="trust-badges" id="trust">
-                <span>✅ Secure Demo</span>
-                <span>🔒 Privacy respected</span>
-                <span>⭐ 4.9 Review Average</span>
-            </div>
+    <div class="container">
+
+        <div class="profile-box">
+            <div class="profile-glow"></div>
+            <img src="logo.jpg" alt="Admin" class="profile-pic">
+            <div class="badge">OFFICIAL</div>
         </div>
-    </section>
 
-    <a href="https://t.me/Rivestro?text=Hi%20Mujhe%20Website%20Create%20Karwana%20Hai" target="_blank" class="tg-sticky" aria-label="Contact on Telegram">Contact</a>
+        <div class="tag-pill">✨ NUMBER SURESHOT</div>
 
-    <section id="games" class="games">
-        <div class="container">
-            <div class="card">
-                <h2>Tc Lottery</h2>
-                <a class="btn" href="https://support6.indbet.live/#/register?invitationCode=218065739613" target="_blank">PLAY DEMO</a>
-                <a class="btn" href="https://support6.indbet.live/boss" target="_blank">ADMIN PANEL</a>
-                <div class="cred">Admin Panel ID: Laxmisolutions | Pass: Laxmisolutions</div>
+        <h1 class="gradient-text">Insane Shani</h1>
+        <p class="desc">Join the fastest growing trading community and start making profit daily.</p>
+
+        <div class="stats-row">
+            <div class="stat-item">
+                <span class="s-val">15K+</span>
+                <span class="s-lbl">Members</span>
             </div>
-
-            <div class="card">
-                <h2>Jalwa Game</h2>
-                <a class="btn" href="https://support4.indbet.live/#/register?invitationCode=218065739613" target="_blank">PLAY DEMO</a>
-                <a class="btn" href="https://support4.indbet.live/boss" target="_blank">ADMIN PANEL</a>
-                <div class="cred">Admin Panel ID: Laxmisolutions | Pass: Laxmisolutions</div>
+            <div class="stat-item">
+                <span class="s-val" style="color:#00ff88;">98%</span>
+                <span class="s-lbl">Accuracy</span>
             </div>
-
-            <div class="card">
-                <h2>Tiranga Game</h2>
-                <a class="btn" href="https://support.indbet.live/#/register?invitationCode=218065739613" target="_blank">PLAY DEMO</a>
-                <a class="btn" href="https://support.indbet.live/boss" target="_blank">ADMIN PANEL</a>
-                <div class="cred">Admin Panel ID: Laxmisolutions | Pass: Laxmisolutions</div>
-            </div>
-
-            <div class="card">
-                <h2>Raja Game</h2>
-                <a class="btn" href="https://support2.indbet.live/#/register?invitationCode=218065739613" target="_blank">PLAY DEMO</a>
-                <a class="btn" href="https://support2.indbet.live/boss" target="_blank">ADMIN PANEL</a>
-                <div class="cred">Admin Panel ID: Laxmisolutions | Pass: Laxmisolutions</div>
-            </div>
-
-            <div class="card">
-                <h2>Sikkim Game</h2>
-                <a class="btn" href="https://support3.indbet.live/#/register?invitationCode=218065739613" target="_blank">PLAY DEMO</a>
-                <a class="btn" href="https://support3.indbet.live/boss" target="_blank">ADMIN PANEL</a>
-                <div class="cred">Admin Panel ID: Laxmisolutions | Pass: Laxmisolutions</div>
-            </div>
-
-            <div class="card">
-                <h2>Diuwiin</h2>
-                <a class="btn" href="https://support1.indbet.live/#/register?invitationCode=218065739613" target="_blank">PLAY DEMO</a>
-                <a class="btn" href="https://support1.indbet.live/boss" target="_blank">ADMIN PANEL</a>
-                <div class="cred">Admin Panel ID: Laxmisolutions | Pass: Laxmisolutions</div>
-            </div>
-
-            <div class="card">
-                <h2>55 Club</h2>
-                <a class="btn" href="https://indbet.live/#/register?invitationCode=218065739613" target="_blank">PLAY DEMO</a>
-                <a class="btn" href="https://indbet.live/boss" target="_blank">ADMIN PANEL</a>
-                <div class="cred">Admin Panel ID: Laxmisolutions | Pass: Laxmisolutions</div>
-            </div>
-
-            <div class="card">
-                <h2>6 Club</h2>
-                <a class="btn" href="https://support5.indbet.live/#/register?invitationCode=218065739613" target="_blank">PLAY DEMO</a>
-                <a class="btn" href="https://support5.indbet.live/boss" target="_blank">ADMIN PANEL</a>
-                <div class="cred">Admin Panel ID: Laxmisolutions | Pass: Laxmisolutions</div>
-            </div>
-
-            <div class="card">
-                <h2>NN Game</h2>
-                <a class="btn" href="https://support8.indbet.live/#/register?invitationCode=218065739613" target="_blank">PLAY DEMO</a>
-                <a class="btn" href="https://support8.indbet.live/boss" target="_blank">ADMIN PANEL</a>
-                <div class="cred">Admin Panel ID: Laxmisolutions | Pass: Laxmisolutions</div>
-            </div>
-
-            <div class="card">
-                <h2>Bharat Club</h2>
-                <a class="btn" href="https://support7.indbet.live/#/register?invitationCode=218065739613" target="_blank">PLAY DEMO</a>
-                <a class="btn" href="https://support7.indbet.live/boss" target="_blank">ADMIN PANEL</a>
-                <div class="cred">Admin Panel ID: Laxmisolutions | Pass: Laxmisolutions</div>
-            </div>
-
-            <div class="card">
-                <h2>Daman</h2>
-                <a class="btn" href="https://support9.indbet.live/#/register?invitationCode=218065739613" target="_blank">PLAY DEMO</a>
-                <a class="btn" href="https://support9.indbet.live/boss" target="_blank">ADMIN PANEL</a>
-                <div class="cred">Admin Panel ID: Laxmisolutions | Pass: Laxmisolutions</div>
-            </div>
-
-            <div class="card">
-                <h2>51 Game</h2>
-                <a class="btn" href="https://support10.indbet.live/#/register?invitationCode=218065739613" target="_blank">PLAY DEMO</a>
-                <a class="btn" href="https://support10.indbet.live/boss" target="_blank">ADMIN PANEL</a>
-                <div class="cred">Admin Panel ID: Laxmisolutions | Pass: Laxmisolutions</div>
-            </div>
-
-            <div class="card">
-                <h2>91 Game</h2>
-                <a class="btn" href="https://support11.indbet.live/#/register?invitationCode=218065739613" target="_blank">PLAY DEMO</a>
-                <a class="btn" href="https://support11.indbet.live/boss" target="_blank">ADMIN PANEL</a>
-                <div class="cred">Admin Panel ID: Laxmisolutions | Pass: Laxmisolutions</div>
-            </div>
-
-            <div class="card">
-                <h2>Tashanwin</h2>
-                <a class="btn" href="https://support12.indbet.live/#/register?invitationCode=218065739613" target="_blank">PLAY DEMO</a>
-                <a class="btn" href="https://support12.indbet.live/boss" target="_blank">ADMIN PANEL</a>
-                <div class="cred">Admin Panel ID: Laxmisolutions | Pass: Laxmisolutions</div>
-            </div>
-
-            <div class="card">
-                <h2>BDG Game</h2>
-                <a class="btn" href="https://support13.indbet.live/#/register?invitationCode=218065739613" target="_blank">PLAY DEMO</a>
-                <a class="btn" href="https://support13.indbet.live/boss" target="_blank">ADMIN PANEL</a>
-                <div class="cred">Admin Panel ID: Laxmisolutions | Pass: Laxmisolutions</div>
-            </div>
-
-            <div class="card">
-                <h2>Russia Game</h2>
-                <a class="btn" href="https://support14.indbet.live/#/register?invitationCode=218065739613" target="_blank">PLAY DEMO</a>
-                <a class="btn" href="https://support14.indbet.live/boss" target="_blank">ADMIN PANEL</a>
-                <div class="cred">Admin Panel ID: Laxmisolutions | Pass: Laxmisolutions</div>
+            <div class="stat-item">
+                <span class="s-val" style="color:#fbbf24;">FREE</span>
+                <span class="s-lbl">Signals</span>
             </div>
         </div>
 
-        <section class="testimonials">
-            <div class="container">
-                <h3 style="text-align:center;color:#fff;margin:0">What people say</h3>
-                <div style="text-align:center;color:var(--muted);margin-top:8px">Average rating: <strong style="color:var(--accent1);">4.8</strong> / 5 — trusted by game teams</div>
-                <div class="test-grid">
-                    <div class="testimonial">
-                        <div class="avatar">AD</div>
-                        <div class="content">
-                            <div class="who">Arjun D., Senior Game Developer <span class="stars" aria-hidden="true">★★★★★</span><span class="sr-only">5 out of 5 stars</span></div>
-                            <p>“Great for quick validation — demos reflect real gameplay flows and helped us reproduce tricky bugs fast.”</p>
-                        </div>
-                    </div>
+        <div class="btn-wrapper">
+            <a href="https://t.me/+G6C9DSTfK2BlMDU1" class="btn-blue telegram-link">
+                JOIN CHANNEL FREE
+            </a>
 
-                    <div class="testimonial">
-                        <div class="avatar">NP</div>
-                        <div class="content">
-                            <div class="who">Nisha P., Lead QA Engineer <span class="stars" aria-hidden="true">★★★★☆</span><span class="sr-only">4 out of 5 stars</span></div>
-                            <p>“Easy-to-use admin panels and consistent test credentials made regression testing much faster.”</p>
-                        </div>
-                    </div>
+            <div class="middle-label">Limited Spots</div>
 
-                    <div class="testimonial">
-                        <div class="avatar">RS</div>
-                        <div class="content">
-                            <div class="who">Rahul S., Game Designer <span class="stars" aria-hidden="true">★★★★★</span><span class="sr-only">5 out of 5 stars</span></div>
-                            <p>“Helpful demos to preview designs with stakeholders — flows are deterministic and great for demos.”</p>
-                        </div>
-                    </div>
+            <a href="https://t.me/+G6C9DSTfK2BlMDU1" class="btn-blue telegram-link">
+                GET VIP ACCESS
+            </a>
+        </div>
 
-                    <div class="testimonial">
-                        <div class="avatar">MK</div>
-                        <div class="content">
-                            <div class="who">Meera K., Studio Producer <span class="stars" aria-hidden="true">★★★★☆</span><span class="sr-only">4 out of 5 stars</span></div>
-                            <p>“Reliable previews, quick setup, and responsive support — a trustworthy resource for client walkthroughs.”</p>
-                        </div>
-                    </div>
-                </div>
-                <div style="text-align:center;margin-top:14px">
-                    <a href="#" class="btn ghost">Share your review</a>
-                </div>
-            </div>
-        </section>
+        <div class="timer-area">
+            <div>Link Expires In:</div>
+            <div id="countdown">01:00</div>
+        </div>
 
-        <footer class="footer">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <div class="brand-row">
-                        <div class="logo" style="width:60px;height:60px;border-radius:8px;background:linear-gradient(135deg,var(--accent1),#4ce0c7);display:flex;align-items:center;justify-content:center;color:#002;font-weight:700">AG</div>
-                        <div style="margin-left:12px">
-                            <strong style="color:#fff">All Games Demo Hub</strong>
-                            <div style="color:var(--text-muted);font-size:13px">Trusted demos for QA and client previews.</div>
-                        </div>
-                    </div>
-                    <p style="margin-top:12px;color:var(--text-muted);font-size:13px">Providing secure demo access and admin panels since 2022. Focused on privacy and reliability.</p>
-                </div>
+        <div class="ads-management-box">
+            <div>⚡ Ads Management By ⚡</div>
+            <a href="https://t.me/cryizers" class="ads-btn" target="_blank">
+                TG @cryizers
+            </a>
+        </div>
 
-                <div class="footer-col">
-                    <h4>Quick links</h4>
-                    <p><a href="#games">Browse Games</a></p>
-                    <p><a href="#trust">Trust & Safety</a></p>
-                    <p><a href="https://t.me/Rivestro?text=Hi%20Mujhe%20Website%20Create%20Karwana%20Hai" target="_blank">Contact Support</a></p>
-                </div>
+        <div class="footer-note">
+            Disclaimer: Trading involves risk. Educational purpose only.
+        </div>
 
-                <div class="footer-col">
-                    <h4>Contact</h4>
-                    <p>Email: <a href="/cdn-cgi/l/email-protection#98fbf7f6ecf9fbecd8fde0f9f5e8f4fdb6fbf7f5"><span class="__cf_email__" data-cfemail="75161a1b0114160135100d14180519105b161a18">[email&#160;protected]</span></a></p>
-                    <p>Telegram: <a href="https://t.me/Rivestro?text=Hi%20Mujhe%20Website%20Create%20Karwana%20Hai" target="_blank">t.me/Rivestro</a></p>
-                    <p>Response time: <strong>24–48 hrs</strong></p>
-                </div>
+    </div>
 
-                <div class="footer-col">
-                    <h4>Stay informed</h4>
-                    <div class="newsletter" style="display:flex;flex-wrap:wrap;gap:8px;margin-top:8px">
-                        <input aria-label="Email" placeholder="Your email" />
-                        <button>Subscribe</button>
-                    </div>
-                    <div style="margin-top:12px;display:flex;gap:10px" class="socials">
-                        <a href="#">Twitter</a>
-                        <a href="#">Facebook</a>
-                        <a href="#">GitHub</a>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">© 2025 All Games Demo Hub • Built for demo & testing • <span style="color:var(--text-muted)">Privacy-first</span></div>
-        </footer>
+    <script>
+        const MAIN_CHANNEL_URL = "https://t.me/+G6C9DSTfK2BlMDU1"; 
 
-        <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-        
-        <!-- Meta Pixel Code -->
-        <script>
-            !function(f,b,e,v,n,t,s)
-            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-            n.queue=[];t=b.createElement(e);t.async=!0;
-            t.src=v;s=b.getElementsByTagName(e)[0];
-            s.parentNode.insertBefore(t,s)}(window, document,'script',
-            'https://connect.facebook.net/en_US/fbevents.js');
-            fbq('init', '1509866680118690');
-            fbq('track', 'PageView');
-        </script>
-        <noscript><img height="1" width="1" style="display:none"
-        src="https://www.facebook.com/tr?id=1509866680118690&ev=PageView&noscript=1"
-        /></noscript>
-        <!-- End Meta Pixel Code -->
-        
-        <script>
-            // Disable Right Click with Alert
-            document.addEventListener('contextmenu', function (e) {
-                e.preventDefault();
-                alert('Method Not Allowed');
-            });
+        document.querySelectorAll('.telegram-link').forEach(a => a.href = MAIN_CHANNEL_URL);
 
-            // Disable Developer Tools and View Source
-            document.onkeydown = function (e) {
-                // F12
-                if (e.keyCode == 123) return false;
-                // Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+Shift+C
-                if (e.ctrlKey && e.shiftKey && (e.keyCode == 73 || e.keyCode == 74 || e.keyCode == 67)) {
-                    return false;
-                }
-                // Ctrl+U (View Source)
-                if (e.ctrlKey && e.keyCode == 85) {
-                    return false;
-                }
-            };
+        const TIME_LIMIT = 60; 
+        let time = TIME_LIMIT;
+        const timerEl = document.getElementById('countdown');
 
-            // Disable Text Selection
-            document.addEventListener('selectstart', event => event.preventDefault());
-        </script>
-        
-        <script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"90ed9ef9b17048bf98872b6ab0422c33","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
-    </section>
+        setInterval(() => {
+            let m = Math.floor(time / 60);
+            let s = time % 60;
+            s = s < 10 ? '0' + s : s;
+            timerEl.textContent = `0${m}:${s}`;
+            time--;
+
+            if (time < 0) {
+                window.location.href = MAIN_CHANNEL_URL; 
+            }
+        }, 1000);
+
+        document.addEventListener('contextmenu', e => e.preventDefault());
+        document.onkeydown = e => {
+            if(e.keyCode == 123 || (e.ctrlKey && e.shiftKey && e.keyCode == 73) || (e.ctrlKey && e.keyCode == 85)) return false;
+        };
+    </script>
+
 </body>
 </html>
