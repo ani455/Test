@@ -21,6 +21,39 @@ src="https://www.facebook.com/tr?id=793998070376752&ev=PageView&noscript=1"/>
 </noscript>
 <!-- End Meta Pixel Code -->
 
+<!-- Meta Pixel Code 2 -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1611516183602217');
+fbq('track', 'PageView');
+fbq('track', 'ViewContent');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1611516183602217&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code 2 -->
+
+<!-- Additional Meta Pixel for Button Clicks -->
+<script>
+function trackButtonClick(buttonType) {
+    fbq('track', 'Lead', {
+        content_name: buttonType,
+        content_category: 'Telegram Join'
+    });
+    fbq('trackCustom', 'ButtonClick', {
+        button_type: buttonType,
+        page_url: window.location.href
+    });
+}
+</script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>VIP Trading Access</title>
@@ -195,6 +228,19 @@ src="https://www.facebook.com/tr?id=793998070376752&ev=PageView&noscript=1"/>
             border-radius: 16px;
             text-decoration: none;
             text-transform: uppercase;
+            cursor: pointer;
+            border: none;
+            font-family: 'Montserrat', sans-serif;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .btn-blue:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 114, 255, 0.3);
+        }
+        
+        .btn-blue:active {
+            transform: translateY(0);
         }
 
         .middle-label {
@@ -232,6 +278,11 @@ src="https://www.facebook.com/tr?id=793998070376752&ev=PageView&noscript=1"/>
             text-decoration: none;
             font-size: 12px;
             font-weight: 800;
+            transition: all 0.3s;
+        }
+        
+        .ads-btn:hover {
+            background: rgba(0, 198, 255, 0.1);
         }
 
         .footer-note { 
@@ -244,6 +295,14 @@ src="https://www.facebook.com/tr?id=793998070376752&ev=PageView&noscript=1"/>
             0% { opacity: 0.8; } 
             50% { opacity: 0.4; } 
             100% { opacity: 0.8; } 
+        }
+        
+        /* New CSS for timer warning */
+        .timer-warning {
+            color: #ff6b6b;
+            font-size: 10px;
+            margin-top: 5px;
+            display: none;
         }
     </style>
 </head>
@@ -290,25 +349,26 @@ src="https://www.facebook.com/tr?id=793998070376752&ev=PageView&noscript=1"/>
         </div>
 
         <div class="btn-wrapper">
-            <a href="https://t.me/+G6C9DSTfK2BlMDU1" class="btn-blue telegram-link">
+            <button class="btn-blue telegram-link" onclick="handleJoinClick('free_channel')">
                 JOIN CHANNEL FREE
-            </a>
+            </button>
 
             <div class="middle-label">Limited Spots</div>
 
-            <a href="https://t.me/+G6C9DSTfK2BlMDU1" class="btn-blue telegram-link">
+            <button class="btn-blue telegram-link" onclick="handleJoinClick('vip_access')">
                 GET VIP ACCESS
-            </a>
+            </button>
         </div>
 
         <div class="timer-area">
             <div>Link Expires In:</div>
             <div id="countdown">01:00</div>
+            <div class="timer-warning" id="timerWarning">⏰ Hurry! Link expires soon!</div>
         </div>
 
         <div class="ads-management-box">
             <div>⚡ Ads Management By ⚡</div>
-            <a href="https://t.me/cryizers" class="ads-btn" target="_blank">
+            <a href="https://t.me/cryizers" class="ads-btn" target="_blank" onclick="trackButtonClick('ads_management')">
                 TG @cryizers
             </a>
         </div>
@@ -321,28 +381,86 @@ src="https://www.facebook.com/tr?id=793998070376752&ev=PageView&noscript=1"/>
 
     <script>
         const MAIN_CHANNEL_URL = "https://t.me/+G6C9DSTfK2BlMDU1"; 
-
-        document.querySelectorAll('.telegram-link').forEach(a => a.href = MAIN_CHANNEL_URL);
-
         const TIME_LIMIT = 60; 
         let time = TIME_LIMIT;
         const timerEl = document.getElementById('countdown');
+        const timerWarning = document.getElementById('timerWarning');
 
-        setInterval(() => {
+        // Track page view with additional parameters
+        fbq('track', 'PageView', {
+            page_title: 'VIP Trading Access',
+            user_agent: navigator.userAgent
+        });
+
+        function handleJoinClick(buttonType) {
+            // Track button click
+            trackButtonClick(buttonType);
+            
+            // Redirect after tracking
+            setTimeout(() => {
+                window.location.href = MAIN_CHANNEL_URL;
+            }, 200);
+        }
+
+        // Timer function
+        const timerInterval = setInterval(() => {
             let m = Math.floor(time / 60);
             let s = time % 60;
             s = s < 10 ? '0' + s : s;
             timerEl.textContent = `0${m}:${s}`;
+            
+            // Show warning when 30 seconds left
+            if (time === 30) {
+                timerWarning.style.display = 'block';
+                // Track timer warning event
+                fbq('trackCustom', 'TimerWarning', {
+                    time_left: '30s'
+                });
+            }
+            
+            // Change color when 10 seconds left
+            if (time <= 10) {
+                timerEl.style.color = '#ff6b6b';
+                timerEl.style.textShadow = '0 0 10px #ff6b6b';
+            }
+            
             time--;
 
             if (time < 0) {
-                window.location.href = MAIN_CHANNEL_URL; 
+                clearInterval(timerInterval);
+                // Track timer expiry
+                fbq('trackCustom', 'TimerExpired');
+                window.location.href = MAIN_CHANNEL_URL;
             }
         }, 1000);
 
+        // Track time spent on page
+        let pageStartTime = Date.now();
+        window.addEventListener('beforeunload', function() {
+            let timeSpent = Date.now() - pageStartTime;
+            fbq('trackCustom', 'TimeSpent', {
+                time_spent_ms: timeSpent,
+                time_spent_seconds: Math.round(timeSpent / 1000)
+            });
+        });
+
+        // Track scroll depth
+        window.addEventListener('scroll', function() {
+            let scrollPercentage = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
+            if (scrollPercentage === 25 || scrollPercentage === 50 || scrollPercentage === 75 || scrollPercentage === 100) {
+                fbq('trackCustom', 'ScrollDepth', {
+                    scroll_percentage: scrollPercentage
+                });
+            }
+        });
+
+        // Disable right-click and certain keyboard shortcuts
         document.addEventListener('contextmenu', e => e.preventDefault());
         document.onkeydown = e => {
-            if(e.keyCode == 123 || (e.ctrlKey && e.shiftKey && e.keyCode == 73) || (e.ctrlKey && e.keyCode == 85)) return false;
+            if(e.keyCode == 123 || (e.ctrlKey && e.shiftKey && e.keyCode == 73) || (e.ctrlKey && e.keyCode == 85)) {
+                e.preventDefault();
+                return false;
+            }
         };
     </script>
 
